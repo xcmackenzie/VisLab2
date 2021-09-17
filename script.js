@@ -28,8 +28,12 @@ function filterData(category) {
 	 *
 	 * **************************************************/
 
-	
-	var filtered = attractions.filter(att => att.Category == category);
+	if (category != "all") {
+		var filtered = attractions.filter(att => att.Category == category);
+	}
+	else {
+		var filtered = attractions
+	}
 	var sorted = filtered.sort((a, b) => b.Visitors - a.Visitors);
 	var sliced = sorted.slice(0, 5);
 	renderBarChart(sliced)
